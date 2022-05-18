@@ -1,0 +1,25 @@
+<svg width="66" height="70" viewBox="0 0 66 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.5" y="19.5" width="54" height="45" stroke="#6A64FF"/>
+<rect x="4" y="22" width="49" height="40" rx="4" fill="url(#paint0_linear_143_2964)"/>
+<path d="M12.42 48V39.48H9.06V37.5H18.21V39.48H14.85V48H12.42ZM21.6025 41.73H26.6575V43.62H21.6025V41.73ZM21.7825 46.05H27.4975V48H19.3675V37.5H27.3025V39.45H21.7825V46.05ZM27.9784 48L32.4934 41.775V43.545L28.1734 37.5H30.9334L33.9184 41.715L32.7634 41.73L35.7034 37.5H38.3434L34.0534 43.44V41.7L38.5984 48H35.7934L32.7034 43.545H33.8134L30.7684 48H27.9784ZM41.4573 48V39.48H38.0973V37.5H47.2473V39.48H43.8873V48H41.4573Z" fill="white" fill-opacity="0.75"/>
+<rect y="18" width="3" height="3" fill="#6A64FF"/>
+<rect y="63" width="3" height="3" fill="#6A64FF"/>
+<rect x="54" y="18" width="3" height="3" fill="#6A64FF"/>
+<rect x="54" y="63" width="3" height="3" fill="#6A64FF"/>
+<g filter="url(#filter0_b_143_2964)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M54.0703 32.6072L63 29.3874L39 16L45.9968 42.8655L51.2364 34.8536L57.5096 43L60.3435 40.7536L54.0703 32.6072Z" fill="#2F77FF" fill-opacity="0.8"/>
+<path d="M55.6988 33.083L63.3392 30.3281C63.7078 30.1952 63.9648 29.8592 63.9967 29.4686C64.0285 29.0781 63.8294 28.7049 63.4871 28.514L39.4871 15.1267C39.1374 14.9316 38.705 14.964 38.3882 15.209C38.0714 15.4541 37.9313 15.8645 38.0323 16.252L45.0291 43.1175C45.1288 43.5004 45.4449 43.7885 45.8353 43.8524C46.2258 43.9162 46.6172 43.7439 46.8337 43.4128L51.3029 36.579L56.7173 43.6101C56.8806 43.8222 57.1221 43.9599 57.3877 43.9925C57.6534 44.0252 57.921 43.9499 58.1308 43.7837L60.9646 41.5373C61.3932 41.1976 61.4694 40.5768 61.1358 40.1435L55.6988 33.083Z" stroke="#60D0FF" stroke-width="2" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_b_143_2964" x="31" y="8" width="40" height="43" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="3"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_143_2964"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_143_2964" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_143_2964" x1="33.0132" y1="85.2558" x2="33.0132" y2="21.0698" gradientUnits="userSpaceOnUse">
+<stop stop-color="#366EFF"/>
+<stop offset="1" stop-color="#A757FF"/>
+</linearGradient>
+</defs>
+</svg>

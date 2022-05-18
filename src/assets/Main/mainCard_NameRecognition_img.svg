@@ -1,0 +1,54 @@
+<svg width="400" height="282" viewBox="0 0 400 282" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_16_2781)">
+<rect x="102.5" y="80.5" width="378" height="378" rx="2.5" stroke="url(#paint0_angular_16_2781)"/>
+<rect x="145.5" y="123.5" width="292" height="292" rx="2.5" stroke="url(#paint1_angular_16_2781)"/>
+<rect x="178.5" y="156.5" width="226" height="226" rx="2.5" stroke="url(#paint2_angular_16_2781)"/>
+<rect x="198.5" y="176.5" width="186" height="186" rx="2.5" stroke="url(#paint3_angular_16_2781)"/>
+<rect x="213.5" y="191.5" width="156" height="156" rx="2.5" stroke="url(#paint4_angular_16_2781)"/>
+<rect x="223.5" y="201.5" width="136" height="136" rx="2.5" stroke="url(#paint5_angular_16_2781)"/>
+<rect x="231.5" y="209.5" width="120" height="120" rx="2.5" stroke="url(#paint6_angular_16_2781)"/>
+<rect x="238.5" y="216.5" width="106" height="106" rx="2.5" stroke="url(#paint7_angular_16_2781)"/>
+<rect x="244.5" y="222.5" width="94" height="94" rx="2.5" stroke="url(#paint8_angular_16_2781)"/>
+</g>
+<defs>
+<radialGradient id="paint0_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(189.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint1_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(146.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint2_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(113.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint3_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(93.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint4_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(78.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint5_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(68.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint6_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(60.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint7_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(53.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<radialGradient id="paint8_angular_16_2781" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(291.5 269.5) rotate(90) scale(47.5)">
+<stop stop-color="#359EFF"/>
+<stop offset="1" stop-color="#AF6AFE"/>
+</radialGradient>
+<clipPath id="clip0_16_2781">
+<path d="M0 0H400V278C400 280.209 398.209 282 396 282H4C1.79086 282 0 280.209 0 278V0Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
