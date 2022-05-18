@@ -52,7 +52,7 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded }) => {
 			) : (
 				<Frame {...getRootProps({ className: 'dropzone' })}>
 					<input {...getInputProps()} />
-					<UploadBtn type="button">
+					<UploadBtn onClick={open} type="button">
 						<UploadIcon width={88} height={88} />
 					</UploadBtn>
 					<MainDesc>선택된 파일이 없습니다. 파일을 업로드 해주세요. 확장자는 mp4를 지원합니다.</MainDesc>
