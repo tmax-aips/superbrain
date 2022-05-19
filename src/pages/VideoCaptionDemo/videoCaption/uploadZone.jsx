@@ -55,7 +55,8 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded }) => {
 					<UploadBtn onClick={open} type="button">
 						<UploadIcon width={88} height={88} />
 					</UploadBtn>
-					<MainDesc>선택된 파일이 없습니다. 파일을 업로드 해주세요. 확장자는 mp4를 지원합니다.</MainDesc>
+					<MainDesc>영상파일을 마우스로 드래그하거나, 아이콘을 눌러 영상 파일을 업로드해주세요</MainDesc>
+					<SubDesc>영상 파일 크기에 비례하여 시간이 걸립니다. (지원 파일 : mp4)</SubDesc>
 					<SelectButton onClick={open}>파일 선택</SelectButton>
 				</Frame>
 			)}
@@ -76,6 +77,12 @@ const MainDesc = styled.div`
 	padding: 1rem 0;
 `;
 
+const SubDesc = styled.div`
+	color: #9c9c9c;
+	line-height: 1.5;
+	font-size: 15px;
+	padding: 0 0 1em 0;
+`;
 const UploadBtn = styled.button`
 	border: none;
 	cursor: pointer;
