@@ -285,7 +285,6 @@ const LogoBox = styled.div`
 const Banner = styled.div`
 	display: flex;
 	width: 100%;
-	min-width: 1600px;
 	height: 566px;
 	padding: 170px 0px;
 	flex-direction: column;
