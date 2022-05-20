@@ -6,7 +6,7 @@ import { ReactComponent as UploadIcon } from 'src/assets/VideoCaption/uploadIcon
 import { CircleProgress } from 'src/components/loading/circleProgress';
 
 // 파일 업로드 컴포넌트
-export const UploadZone = ({ file, onChange, setFile, setIsUploaded, temp, setTemp }) => {
+export const UploadZone = ({ file, onChange, setFile, setIsUploaded, isButtonUsed, setIsButtonUsed }) => {
     const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
 	const [loadingText, setLoadingText] = useState('영상 자막으로 변환중.'); // 로딩 텍스트
 
@@ -31,11 +31,11 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded, temp, setTe
 
 	const files = acceptedFiles.map((file) => <div key={file.path}>{file.name}</div>);
     useEffect(() => {
-        if(temp == true)
+        if(isButtonUsed == true)
             open();
-            setTemp(false);
+            setIsButtonUsed(false);
         },
-    [temp==true]);
+    [isButtonUsed==true]);
 	//변환중일 때 로딩 텍스트 변경
 	useInterval(() => {
 		if (loadingText.includes('...')) {

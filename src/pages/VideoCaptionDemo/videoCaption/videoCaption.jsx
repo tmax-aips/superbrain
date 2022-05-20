@@ -24,7 +24,7 @@ export const VideoCaptionComp = () => {
 	const [videoDuration, setVideoDuration] = useState(0);
     const [dummyLoadingState, setDummyLoadingState] = useState(false);
 
-    const [temp,setTemp] = useState(false);
+    const [isButtonUsed,setIsButtonUsed] = useState(false);
 
 	// get audio data when uploading videos
 	const videoUpload = async (file) => {
@@ -96,7 +96,7 @@ export const VideoCaptionComp = () => {
         setPlaying(false);
         setFile(null);
         setLoading(false);
-        setTemp(true);
+        setIsButtonUsed(true);
 	};
 
 	// current caption change => video caption change
@@ -138,7 +138,7 @@ export const VideoCaptionComp = () => {
 
 			{!loading ? (
 				<BodySection className="center">
-					<UploadZone file={file} setFile={setFile} onChange={videoUpload} setIsUploaded={setLoading} temp={temp} setTemp={setTemp}/>
+					<UploadZone file={file} setFile={setFile} onChange={videoUpload} setIsUploaded={setLoading} isButtonUsed={isButtonUsed} setIsButtonUsed={setIsButtonUsed}/>
 				</BodySection>
 			) : (
 				<PlayerWrapper>
