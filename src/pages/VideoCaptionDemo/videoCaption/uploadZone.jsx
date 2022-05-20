@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback,useEffect } from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import useInterval from 'src/hooks/useInterval';
@@ -6,8 +6,8 @@ import { ReactComponent as UploadIcon } from 'src/assets/VideoCaption/uploadIcon
 import { CircleProgress } from 'src/components/loading/circleProgress';
 
 // 파일 업로드 컴포넌트
-export const UploadZone = ({ file, onChange, setFile, setIsUploaded }) => {
-	const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
+export const UploadZone = ({ file, onChange, setFile, setIsUploaded, temp, setTemp }) => {
+    const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
 	const [loadingText, setLoadingText] = useState('영상 자막으로 변환중.'); // 로딩 텍스트
 
 	/*-------------------------------------dropzone ----------------------------------------- */
@@ -24,12 +24,18 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded }) => {
 		onDrop,
 		noClick: true,
 		noKeyboard: true,
+		temp : false,
 		maxFiles: 1,
 		accept: 'video/mp4,video/mkv, video/x-m4v,video/*',
 	});
 
 	const files = acceptedFiles.map((file) => <div key={file.path}>{file.name}</div>);
-
+    useEffect(() => {
+        if(temp == true)
+            open();
+            setTemp(false);
+        },
+    [temp==true]);
 	//변환중일 때 로딩 텍스트 변경
 	useInterval(() => {
 		if (loadingText.includes('...')) {

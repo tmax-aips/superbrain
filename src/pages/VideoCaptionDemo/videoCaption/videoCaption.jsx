@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { request } from 'src/utils/axios';
 import styled from 'styled-components';
 import { Converter } from 'src/utils/converter';
@@ -22,6 +22,9 @@ export const VideoCaptionComp = () => {
 	const [playing, setPlaying] = useState(false);
 	const [videoCaption, setVideoCaption] = useState({ text: '', id: 0 });
 	const [videoDuration, setVideoDuration] = useState(0);
+    const [dummyLoadingState, setDummyLoadingState] = useState(false);
+
+    const [temp,setTemp] = useState(false);
 
 	// get audio data when uploading videos
 	const videoUpload = async (file) => {
@@ -86,13 +89,14 @@ export const VideoCaptionComp = () => {
 		}
 		setVideoCaption({ id: sentence.id, text: sentence.text });
 	};
-
 	const destroyVideo = () => {
-		videoRef.current.pause();
-		setIsVideoReady(false);
-		setPlaying(false);
-		setFile(null);
-		setLoading(false);
+        if(file)
+            videoRef.current.pause();
+        setIsVideoReady(false);
+        setPlaying(false);
+        setFile(null);
+        setLoading(false);
+        setTemp(true);
 	};
 
 	// current caption change => video caption change
@@ -134,7 +138,7 @@ export const VideoCaptionComp = () => {
 
 			{!loading ? (
 				<BodySection className="center">
-					<UploadZone file={file} setFile={setFile} onChange={videoUpload} setIsUploaded={setLoading} />
+					<UploadZone file={file} setFile={setFile} onChange={videoUpload} setIsUploaded={setLoading} temp={temp} setTemp={setTemp}/>
 				</BodySection>
 			) : (
 				<PlayerWrapper>
