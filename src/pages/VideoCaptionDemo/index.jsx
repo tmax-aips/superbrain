@@ -70,7 +70,7 @@ const FeaturesList = [
 
 const VideoCaptionDemo = () => {
 	return (
-		<div>
+		<div style={{ userSelect: 'none' }}>
 			<Header />
 			<TechHeader
 				title={'영상 자막 생성'}
