@@ -4,7 +4,7 @@ import { observable } from 'mobx';
 const ttsStore = observable({
 	selected: {
 		lang: { key: 'ko', value: 'Korean (South Korea)' },
-		spk: { key: 'lmy', value: '여자(비상업용)' },
+		spk: { key: 'lmy', value: '여자1(비상업용)' },
 		speed: 1,
 		uid: 'test',
 	},
