@@ -1,1 +1,1 @@
-# HyperBrain POC
+# SuperBrain Production Module
