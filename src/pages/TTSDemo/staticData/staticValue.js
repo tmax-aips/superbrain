@@ -2,9 +2,9 @@
 export const languageOption = [{ key: 'ko', value: 'Korean (South Korea)' }];
 
 export const spkOptions = [
-	{ key: 'lmy', value: '아이나비 여자(비상업용)' },
-	{ key: 'kss', value: '여자1(비상업용)' },
-	{ key: 'jimi', value: '여자2(비상업용)' },
+	{ key: 'lmy', value: '여자1(비상업용)' },
+	{ key: 'kss', value: '여자2(비상업용)' },
+	{ key: 'jimi', value: '여자3(비상업용)' },
 	{ key: 'tsd1', value: '남자1' },
 	{ key: 'tsd2', value: '남자2' },
 	{ key: 'tsd5', value: '남자3' },
