@@ -34,8 +34,9 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded, isButtonUse
         if(isButtonUsed == true)
             open();
             setIsButtonUsed(false);
+            console.log(isButtonUsed);
         },
-    [isButtonUsed==true]);
+    [isButtonUsed]);
 	//변환중일 때 로딩 텍스트 변경
 	useInterval(() => {
 		if (loadingText.includes('...')) {
