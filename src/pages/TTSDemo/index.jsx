@@ -80,7 +80,7 @@ const TTSServiceOffers = [
 
 const TTSDemo = () => {
 	return (
-		<div>
+		<div style={{ userSelect: 'none' }}>
 			<Header />
 			<TechHeader
 				title={'TTS(Text to Speech)'}

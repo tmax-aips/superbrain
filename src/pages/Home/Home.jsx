@@ -72,10 +72,10 @@ const Home = () => {
 	];
 
 	return (
-		<Wrapper>
-			<Header main={true} />
+		<Wrapper style={{ userSelect: 'none' }}>
+			<Header main={true}/>
 			<Main>
-				<MainWrapper></MainWrapper>
+				<MainWrapper/>
 				<MainTitle>AI Technology Platform For Anyone</MainTitle>
 				<MainSubTitle>TmaxAI 기술력으로 새로운 가치를 창출해보세요</MainSubTitle>
 				<ButtonWrapper>
@@ -89,7 +89,7 @@ const Home = () => {
 				<TechSectionDesc>음성, 대화, 문서 지능 등 다양한 분야의 AI 기술을 체험해보세요</TechSectionDesc>
 				<CardWrapper>
 					{AITechCardContents.map((card) => (
-						<MainSectionCard key={card.title} card={card}></MainSectionCard>
+						<MainSectionCard key={card.title} card={card} />
 					))}
 				</CardWrapper>
 			</TechSection>
