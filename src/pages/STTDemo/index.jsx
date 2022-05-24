@@ -105,7 +105,7 @@ function STTDemo() {
 	}, []);
 
 	return (
-		<div>
+		<div style={{ userSelect: 'none' }}>
 			<Header />
 			<TechHeader title={headerInfo.title} description={headerInfo.description} demoHeaderSvg={demoHeaderSvg} />
 			<BGWrap>

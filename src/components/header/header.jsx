@@ -30,7 +30,7 @@ export const Header = ({ main }) => {
 	}, []);
 
 	return (
-		<HeaderForm main={main} isGNB={isGNB}>
+		<HeaderForm main={main} isGNB={isGNB} style={{ userSelect: 'none' }}>
 			<HeaderSection main={main}>
 				<Body className="justify-between">
 					<figure className="pointer" onClick={gotoHome}>
