@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { DropZone } from './dropzone';
 import { MediaPlayer } from './mediaPlayer/mediaplayer';
@@ -6,6 +6,7 @@ import { ReactComponent as UploadSVG } from 'src/assets/TTS/upload.svg';
 import { ReactComponent as DownloadSVG } from 'src/assets/TTS/download.svg';
 import { ReactComponent as CopySVG } from 'src/assets/STT/copy.svg';
 import { copyTxt, downloadTxt } from 'src/utils/txt';
+import { useDropzone } from 'react-dropzone';
 
 // 음성 파일 변환하기 컴포넌트
 export const SoundConvert = () => {
@@ -14,17 +15,35 @@ export const SoundConvert = () => {
 	const [textData, setTextData] = useState(); //한줄 텍스트
 	const [wordData, setWordData] = useState(); //단어 오브젝트
 
-	const fileReUpload = () => {
-		setFile(null);
-		setIsUploaded(false);
-		setTextData(null);
-	};
+    // 2022-05-25 김재근 추가
+    const [fileExtension, setFileExtension] = useState('');
+    const [nowLoading, setNowLoading] = useState(false);
+
+    const onDrop = useCallback(
+        (acceptedFiles) => {
+            let fname = acceptedFiles[0]['name'].split('.');
+            setFileExtension(fname[fname.length - 1]);
+            setFile(acceptedFiles[0]);
+            setNowLoading(false);
+            setIsUploaded(false);
+            setTextData(null);
+        },
+        [setFile],
+    );
+
+    const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
+        onDrop,
+        noClick: true,
+        noKeyboard: true,
+        maxFiles: 1,
+        accept: 'audio/*',
+    });
 
 	return (
 		<STTSection>
 			<Header className="justify-between">
 				<FileUploadDiv className="flex center gap-8">
-					<IconButton onClick={fileReUpload} className="center">
+					<IconButton onClick={open} className="center">
 						<UploadSVG className="mr-8" />
 						파일업로드
 					</IconButton>
@@ -49,6 +68,11 @@ export const SoundConvert = () => {
 						setIsUploaded={setIsUploaded}
 						setTextData={setTextData}
 						setWordData={setWordData}
+						fileExtension={fileExtension}
+						setFileExtension={setFileExtension}
+						acceptedFiles={acceptedFiles}
+						nowLoading={nowLoading}
+						setNowLoading={setNowLoading}
 					/>
 				) : (
 					<MediaPlayer
