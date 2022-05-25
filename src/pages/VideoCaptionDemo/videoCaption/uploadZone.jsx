@@ -6,21 +6,21 @@ import { ReactComponent as UploadIcon } from 'src/assets/VideoCaption/uploadIcon
 import { CircleProgress } from 'src/components/loading/circleProgress';
 
 // 파일 업로드 컴포넌트
-export const UploadZone = ({ file, onChange, setFile, setIsUploaded, isButtonUsed, setIsButtonUsed }) => {
-    const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
-	const [loadingText, setLoadingText] = useState('영상 자막으로 변환중.'); // 로딩 텍스트
+export const UploadZone = ({ file, onChange, setFile, setIsUploaded, dummyLoadingState, setDummyLoadingState, acceptedFiles }) => {
 
+    const [loadingText, setLoadingText] = useState('영상 자막으로 변환중.'); // 로딩 텍스트
 	/*-------------------------------------dropzone ----------------------------------------- */
 	const onDrop = useCallback(
 		async (acceptedFiles) => {
 			setFile(acceptedFiles[0]);
 			await onChange(acceptedFiles[0]);
 			setDummyLoadingState(true);
+			setIsUploaded(false);
 		},
 		[setFile],
 	);
 
-	const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
+	const { getRootProps, getInputProps, open} = useDropzone({
 		onDrop,
 		noClick: true,
 		noKeyboard: true,
@@ -30,13 +30,7 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded, isButtonUse
 	});
 
 	const files = acceptedFiles.map((file) => <div key={file.path}>{file.name}</div>);
-    useEffect(() => {
-        if(isButtonUsed == true)
-            open();
-            setIsButtonUsed(false);
-            console.log(isButtonUsed);
-        },
-    [isButtonUsed]);
+
 	//변환중일 때 로딩 텍스트 변경
 	useInterval(() => {
 		if (loadingText.includes('...')) {
