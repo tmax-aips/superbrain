@@ -55,7 +55,7 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded }) => {
 					<UploadBtn onClick={open} type="button">
 						<UploadIcon width={88} height={88} />
 					</UploadBtn>
-					<MainDesc>영상파일을 마우스로 드래그하거나, 아이콘을 눌러 영상 파일을 업로드해주세요</MainDesc>
+					<MainDesc>영상 파일을 마우스로 드래그하거나, 아이콘을 눌러 영상 파일을 업로드해주세요</MainDesc>
 					<SubDesc>영상 파일 크기에 비례하여 시간이 걸립니다. (지원 파일 : mp4, mkv, m4v)</SubDesc>
 					<SelectButton onClick={open}>파일 선택</SelectButton>
 				</Frame>
