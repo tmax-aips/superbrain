@@ -11,9 +11,8 @@ import { getWordData } from 'src/API/stt';
 import { CircleProgress } from 'src/components/loading/circleProgress';
 
 // 파일 업로드 컴포넌트
-export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordData }) => {
-	const [fileExtension, setFileExtension] = useState(''); // 파일 확장자명
-	const [nowLoading, setNowLoading] = useState(false); // 변환중 로딩 상태
+export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordData, fileExtension, setFileExtension, acceptedFiles, nowLoading, setNowLoading }) => {
+	 // 변환중 로딩 상태
 	const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
 	const [loadingText, setLoadingText] = useState('변환중'); // 로딩 텍스트
 
@@ -27,7 +26,7 @@ export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordDat
 		[setFile],
 	);
 
-	const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
+	const { getRootProps, getInputProps, open } = useDropzone({
 		onDrop,
 		noClick: true,
 		noKeyboard: true,

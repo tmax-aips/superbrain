@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { request } from 'src/utils/axios';
 import styled from 'styled-components';
 import { Converter } from 'src/utils/converter';
@@ -9,7 +9,7 @@ import { videoSentenceMaker } from 'src/utils/wordParser';
 import { VideoPlayer } from './videoPlayer';
 import { CreateSrtFile } from 'src/utils/createSrtFile';
 import { UploadZone } from './uploadZone';
-
+import { useDropzone } from 'react-dropzone';
 // video component
 export const VideoCaptionComp = () => {
 	const videoRef = useRef();
@@ -22,6 +22,8 @@ export const VideoCaptionComp = () => {
 	const [playing, setPlaying] = useState(false);
 	const [videoCaption, setVideoCaption] = useState({ text: '', id: 0 });
 	const [videoDuration, setVideoDuration] = useState(0);
+    const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
+
 
 	// get audio data when uploading videos
 	const videoUpload = async (file) => {
@@ -87,14 +89,6 @@ export const VideoCaptionComp = () => {
 		setVideoCaption({ id: sentence.id, text: sentence.text });
 	};
 
-	const destroyVideo = () => {
-		videoRef.current.pause();
-		setIsVideoReady(false);
-		setPlaying(false);
-		setFile(null);
-		setLoading(false);
-	};
-
 	// current caption change => video caption change
 	useEffect(() => {
 		if (sentenceArr.length > 0 && videoRef?.current?.currentTime) {
@@ -113,14 +107,37 @@ export const VideoCaptionComp = () => {
 		}
 	}, [loading]);
 
+	const onDrop = useCallback(
+		async (acceptedFiles) => {
+		    if(loading) videoRef.current.pause();
+            setIsVideoReady(false);
+            setPlaying(false);
+            setFile(null);
+			setFile(acceptedFiles[0]);
+			await videoUpload(acceptedFiles[0]);
+			setLoading(false);
+			setDummyLoadingState(true);
+		},
+		[setFile],
+	);
+	const { getRootProps, getInputProps, acceptedFiles, open } = useDropzone({
+		onDrop,
+		noClick: true,
+		noKeyboard: true,
+		temp : false,
+		maxFiles: 1,
+		accept: 'video/mp4,video/mkv, video/x-m4v,video/*',
+	});
+
 	return (
 		<VideoCompLayout>
 			<Header className="justify-between">
-				<FileUploadDiv className="flex center gap-8">
-					<IconButton onClick={destroyVideo} className="center">
+				<FileUploadDiv className="flex center gap-8" >
+					<IconButton onClick={open} className="center">
 						<UploadSVG className="mr-8" />
-						파일업로드
+						    파일업로드
 					</IconButton>
+
 					{/* {file && isUploaded ? <span>파일명 : {file?.name}</span> : ''} */}
 					<span>파일명 : {file?.name}</span>
 				</FileUploadDiv>
@@ -134,7 +151,8 @@ export const VideoCaptionComp = () => {
 
 			{!loading ? (
 				<BodySection className="center">
-					<UploadZone file={file} setFile={setFile} onChange={videoUpload} setIsUploaded={setLoading} />
+					<UploadZone file={file} setFile={setFile} onChange={videoUpload}
+					setIsUploaded={setLoading} dummyLoadingState={dummyLoadingState} setDummyLoadingState={setDummyLoadingState} acceptedFiles={acceptedFiles}/>
 				</BodySection>
 			) : (
 				<PlayerWrapper>
@@ -200,6 +218,9 @@ const FileUploadDiv = styled.div`
 	font-size: 12px;
 	line-height: 17px;
 	color: #ffffff;
+	input {
+    		display: none;
+    }
 `;
 const IconButton = styled.button`
 	width: 130px;

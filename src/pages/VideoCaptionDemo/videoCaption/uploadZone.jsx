@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback,useEffect } from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import useInterval from 'src/hooks/useInterval';
@@ -6,24 +6,25 @@ import { ReactComponent as UploadIcon } from 'src/assets/VideoCaption/uploadIcon
 import { CircleProgress } from 'src/components/loading/circleProgress';
 
 // 파일 업로드 컴포넌트
-export const UploadZone = ({ file, onChange, setFile, setIsUploaded }) => {
-	const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
-	const [loadingText, setLoadingText] = useState('영상 자막으로 변환중.'); // 로딩 텍스트
+export const UploadZone = ({ file, onChange, setFile, setIsUploaded, dummyLoadingState, setDummyLoadingState, acceptedFiles }) => {
 
+    const [loadingText, setLoadingText] = useState('영상 자막으로 변환중.'); // 로딩 텍스트
 	/*-------------------------------------dropzone ----------------------------------------- */
 	const onDrop = useCallback(
 		async (acceptedFiles) => {
 			setFile(acceptedFiles[0]);
 			await onChange(acceptedFiles[0]);
 			setDummyLoadingState(true);
+			setIsUploaded(false);
 		},
 		[setFile],
 	);
 
-	const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
+	const { getRootProps, getInputProps, open} = useDropzone({
 		onDrop,
 		noClick: true,
 		noKeyboard: true,
+		temp : false,
 		maxFiles: 1,
 		accept: 'video/mp4,video/mkv, video/x-m4v,video/*',
 	});
