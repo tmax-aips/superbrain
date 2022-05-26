@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import useInterval from 'src/hooks/useInterval';
@@ -15,7 +15,6 @@ export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordDat
 	 // 변환중 로딩 상태
 	const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
 	const [loadingText, setLoadingText] = useState('변환중'); // 로딩 텍스트
-
 	/*-------------------------------------dropzone ----------------------------------------- */
 	const onDrop = useCallback(
 		(acceptedFiles) => {
@@ -81,7 +80,8 @@ export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordDat
 							<UploadBtn style={{ cursor: 'default' }} type="button">
 								<LoadedIcon width={88} height={88} />
 							</UploadBtn>
-							<MainDesc>{files}</MainDesc>
+							{console.log(file.name)}
+							<MainDesc> <div key={file.path}>{file.name}</div></MainDesc>
 							<BtnBox nowLoading={nowLoading}>
 								<ConvertBtn onClick={() => submitFile()}>변환하기</ConvertBtn>
 								<CancelBtn onClick={removeFile}>업로드 취소</CancelBtn>
