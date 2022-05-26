@@ -80,7 +80,6 @@ export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordDat
 							<UploadBtn style={{ cursor: 'default' }} type="button">
 								<LoadedIcon width={88} height={88} />
 							</UploadBtn>
-							{console.log(file.name)}
 							<MainDesc> <div key={file.path}>{file.name}</div></MainDesc>
 							<BtnBox nowLoading={nowLoading}>
 								<ConvertBtn onClick={() => submitFile()}>변환하기</ConvertBtn>
