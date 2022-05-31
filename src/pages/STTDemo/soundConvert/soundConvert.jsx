@@ -49,7 +49,7 @@ export const SoundConvert = () => {
 					</IconButton>
 					{file ? (<>
 					    { file.name.length < 50 ? (<span>파일명 : {file?.name}</span>) :
-					    ( <span>파일명 : {file.name.substring(0,5)}...{file.name.slice(-6)}</span> )}
+					    ( <span>파일명 : {file.name.substring(0,10)}...{file.name.slice(-6)}</span> )}
 					     </>)
                     : ''}
 				</FileUploadDiv>
