@@ -46,9 +46,9 @@ const featureList = [
 			{
 				title: '국내 최고 성능',
 				description: [
-					'Character Error Rate (문자오류율)',
+					'Character Error Rate (문자 오류율)',
 					'CER: 7%으로 Tmax AI만의',
-					'정확한 STT기술을 경험하세요',
+					'정확한 STT기술을 경험하세요.',
 				],
 				svg: <PerformanceIcon2 />,
 			},
