@@ -47,7 +47,11 @@ export const SoundConvert = () => {
 						<UploadSVG className="mr-8" />
 						파일업로드
 					</IconButton>
-					{file && isUploaded ? <span>파일명 : {file?.name}</span> : ''}
+					{file ? (<>
+					    { file.name.length < 50 ? (<span>파일명 : {file?.name}</span>) :
+					    ( <span>파일명 : {file.name.substring(0,5)}...{file.name.slice(-6)}</span> )}
+					     </>)
+                    : ''}
 				</FileUploadDiv>
 				<FunctionDiv className="center">
 					<IconButton onClick={() => copyTxt(textData)} className="center">
