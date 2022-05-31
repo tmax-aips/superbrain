@@ -83,7 +83,7 @@ export const TTS = () => {
 				<TextLayout className="column">
 					<TextareaLayout>
 						<TextareaOption className="justify-between">
-							<TextLimitDiv>글자 수(공백포함) : {file.text.length} / 300</TextLimitDiv>
+							<TextLimitDiv>글자 수(공백포함) : {file.text.length} / 200 (자음, 모음 또는 특수문자는 기입 불가)</TextLimitDiv>
 							<div
 								className="center pointer"
 								onClick={() => {
@@ -232,7 +232,7 @@ const TextareaOption = styled.div`
 `;
 
 const TextLimitDiv = styled.div`
-	font-size: 16px;
+	font-size: 13px;
 	line-height: 18px;
 	letter-spacing: -0.01em;
 	color: #9e9e9e;
