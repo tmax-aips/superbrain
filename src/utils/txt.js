@@ -15,8 +15,8 @@ export const downloadTxt = (val) => {
 //텍스트 복사
 export const copyTxt = (val) => {
 	if (!val) {
-		alert('파일을 먼저 업로드해주세요');
+		alert('텍스트 복사를 위해서는 파일 업로드 후 변환 작업이 필요합니다');
 		return;
 	}
-	navigator.clipboard.writeText(val).then(alert('복사되었습니다.'));
+	navigator.clipboard.writeText(val).then(alert('복사되었습니다'));
 };
