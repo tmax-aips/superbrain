@@ -138,8 +138,8 @@ export const VideoCaptionComp = () => {
 						    파일업로드
 					</IconButton>
 
-					{/* {file && isUploaded ? <span>파일명 : {file?.name}</span> : ''} */}
-					<span>파일명 : {file?.name}</span>
+					{file ? (<span>파일명 : {file.name}</span>) : <></>}
+					{/*<span>파일명 : {file?.name}</span>*/}
 				</FileUploadDiv>
 				<FunctionDiv className="center">
 					<IconButton onClick={() => CreateSrtFile(sentenceArr)} className="center">
