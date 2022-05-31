@@ -55,7 +55,7 @@ export const TTS = () => {
 	// handling character count errors when uploading file
 	useEffect(() => {
 		if (file.text.length >= 200) {
-			alert('현재 데모에서는 최대 200글자까지 가능합니다.');
+			alert('체험하기에서는 최대 200글자까지 가능합니다');
 			setFile({ name: file.name, text: file.text.substr(0, 199) });
 		}
 		audioRef.current.src = '';
