@@ -4,9 +4,9 @@ import { useDropzone } from 'react-dropzone';
 import useInterval from 'src/hooks/useInterval';
 import { ReactComponent as UploadIcon } from 'src/assets/VideoCaption/uploadIcon.svg';
 import { CircleProgress } from 'src/components/loading/circleProgress';
-
+import { ReactComponent as LoadedIcon } from 'src/assets/STT/loaded.svg';
 // 파일 업로드 컴포넌트
-export const UploadZone = ({ file, onChange, setFile, setIsUploaded, dummyLoadingState, setDummyLoadingState, acceptedFiles }) => {
+export const UploadZone = ({ file, onChange, setFile, setIsUploaded, dummyLoadingState, setDummyLoadingState, acceptedFiles, nowLoading, setNowLoading }) => {
 
     const [loadingText, setLoadingText] = useState('영상 자막으로 변환중.'); // 로딩 텍스트
 	/*-------------------------------------dropzone ----------------------------------------- */
@@ -34,21 +34,42 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded, dummyLoadin
 	//변환중일 때 로딩 텍스트 변경
 	useInterval(() => {
 		if (loadingText.includes('...')) {
-			setLoadingText('영상 자막으로 변환중.');
+			setLoadingText('영상 자막으로 변환중');
 		} else {
 			setLoadingText(loadingText + '.');
 		}
 	}, 700);
-
+	const removeFile = () => {
+    		const noFile = null;
+    		setFile(noFile);
+    };
+    const submitFile = () => {
+    		setNowLoading(true);
+    }
 	return (
 		<>
 			{file ? (
 				<Frame>
-					<CircleProgress completeCallback={setIsUploaded} isComplete={dummyLoadingState} />
-					<MainDesc>{files}</MainDesc>
-					<BtnBox>
-						<LoadingFont>{loadingText}</LoadingFont>
-					</BtnBox>
+				    {!nowLoading ? (
+                        <>
+                            <UploadBtn style={{ cursor: 'default' }} type="button">
+                                <LoadedIcon width={88} height={88} />
+                            </UploadBtn>
+                            <MainDesc> <div key={file.path}>{file.name}</div></MainDesc>
+                            <BtnBox nowLoading={nowLoading}>
+                                <ConvertBtn onClick={() => submitFile()}>변환하기</ConvertBtn>
+                                <CancelBtn onClick={removeFile}>업로드 취소</CancelBtn>
+                            </BtnBox>
+                        </>
+				    ) : (
+				        <>
+                            <CircleProgress completeCallback={setIsUploaded} isComplete={dummyLoadingState} />
+                            <MainDesc>{files}</MainDesc>
+                            <BtnBox nowLoading={nowLoading}>
+                                <LoadingFont>{loadingText}</LoadingFont>
+                            </BtnBox>
+                        </>
+				    )}
 				</Frame>
 			) : (
 				<Frame {...getRootProps({ className: 'dropzone' })}>
@@ -107,13 +128,13 @@ const SelectButton = styled.button`
 		background: #498cff;
 	}
 `;
-
 const BtnBox = styled.div`
 	display: flex;
 	width: 230px;
 	height: 50px;
-	justify-content: center;
-	align-items: center;
+	justify-content: ${(props) => (props.nowLoading ? 'center' : 'space-between')};
+    align-items: center;
+    text-align: center;
 `;
 
 const LoadingFont = styled.div`
@@ -121,4 +142,27 @@ const LoadingFont = styled.div`
 	color: #2979ff;
 	font-weight: 700;
 	line-height: 18;
+`;
+const ConvertBtn = styled.button`
+	width: 110px;
+	height: 35px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	background: #2979ff;
+	border-radius: 4px;
+	border: none;
+	color: white;
+	cursor: pointer;
+`;
+
+const CancelBtn = styled.button`
+	width: 110px;
+	height: 35px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	background: white;
+	border: 1px solid #2979ff;
+	border-radius: 4px;
+	color: #2979ff;
+	cursor: pointer;
 `;
