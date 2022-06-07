@@ -39,7 +39,7 @@ export const MenuBar = () => {
 
 		if (scrollLocation > 228 && e.deltaY > 0 && isVisible) {
 			setIsVisible(false);
-		} else if (e.deltaY < 0 && !isVisible) {
+		} else if (scrollLocation <= 228 && e.deltaY < 0 && !isVisible) {
 			setIsVisible(true);
 		} else {
 			return;
