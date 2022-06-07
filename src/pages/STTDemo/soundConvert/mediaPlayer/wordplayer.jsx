@@ -23,6 +23,7 @@ const ContentsBox = styled.div`
 	flex-direction: column;
 	overflow-y: auto;
 	overflow-x: hidden;
+	overscroll-behavior: contain;
 	height: 100%;
 	::-webkit-scrollbar {
 		width: 10px;
