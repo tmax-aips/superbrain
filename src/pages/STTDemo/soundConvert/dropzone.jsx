@@ -93,7 +93,13 @@ export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordDat
 					) : (
 						<>
 							<CircleProgress completeCallback={setIsUploaded} isComplete={dummyLoadingState} />
-							<MainDesc>{files}</MainDesc>
+							<MainDesc>
+                                {file ? (<>
+                                  { file.name.length < 50 ? (<span>{file?.name}</span>) :
+                                  ( <span>{file.name.substring(0,10)}...{file.name.slice(-6)}</span> )}
+                                   </>)
+                                : ''}
+                            </MainDesc>
 							<BtnBox nowLoading={nowLoading}>
 								<LoadingFont>{loadingText}</LoadingFont>
 							</BtnBox>

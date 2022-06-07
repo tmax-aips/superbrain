@@ -45,7 +45,12 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded, dummyLoadin
 			{file ? (
 				<Frame>
 					<CircleProgress completeCallback={setIsUploaded} isComplete={dummyLoadingState} />
-					<MainDesc>{files}</MainDesc>
+					<MainDesc>
+					{file ? (<>
+                        { file.name.length < 50 ? (<span>{file?.name}</span>) :
+                        ( <span>{file.name.substring(0,10)}...{file.name.slice(-6)}</span> )}
+                         </>)
+                      : ''}</MainDesc>
 					<BtnBox>
 						<LoadingFont>{loadingText}</LoadingFont>
 					</BtnBox>
