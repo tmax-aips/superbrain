@@ -71,7 +71,11 @@ export const TTS = () => {
 							txt 파일 업로드
 						</div>
 					</label>
-					{file.name && <span>파일명 | {file.name}</span>}
+					{file.name!='' ? (<>
+                        { file.name.length < 50 ? (<span>파일명 : {file?.name}</span>) :
+                        ( <span>파일명 : {file.name.substring(0,10)}...{file.name.slice(-6)}</span> )}
+                         </>)
+                    : ''}
 					<input type="file" accept=".txt" id="tts_file" onChange={handleChange.bind()} />
 				</FileUploadDiv>
 				<DownloadBtn className="center" onClick={downloadAud}>
