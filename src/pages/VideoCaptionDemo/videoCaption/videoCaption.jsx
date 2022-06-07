@@ -23,7 +23,7 @@ export const VideoCaptionComp = () => {
 	const [videoCaption, setVideoCaption] = useState({ text: '', id: 0 });
 	const [videoDuration, setVideoDuration] = useState(0);
     const [dummyLoadingState, setDummyLoadingState] = useState(false); // 로딩 프로그래스 여부
-
+    const [nowLoading, setNowLoading] = useState(false);
 
 	// get audio data when uploading videos
 	const videoUpload = async (file) => {
@@ -112,6 +112,7 @@ export const VideoCaptionComp = () => {
 		    if(loading) videoRef.current.pause();
             setIsVideoReady(false);
             setPlaying(false);
+            setNowLoading(false);
             setFile(null);
 			setFile(acceptedFiles[0]);
 			await videoUpload(acceptedFiles[0]);
@@ -151,8 +152,16 @@ export const VideoCaptionComp = () => {
 
 			{!loading ? (
 				<BodySection className="center">
-					<UploadZone file={file} setFile={setFile} onChange={videoUpload}
-					setIsUploaded={setLoading} dummyLoadingState={dummyLoadingState} setDummyLoadingState={setDummyLoadingState} acceptedFiles={acceptedFiles}/>
+					<UploadZone
+					file={file}
+					setFile={setFile}
+					onChange={videoUpload}
+					setIsUploaded={setLoading}
+					dummyLoadingState={dummyLoadingState}
+					setDummyLoadingState={setDummyLoadingState}
+					acceptedFiles={acceptedFiles}
+					nowLoading={nowLoading}
+					setNowLoading={setNowLoading}/>
 				</BodySection>
 			) : (
 				<PlayerWrapper>
