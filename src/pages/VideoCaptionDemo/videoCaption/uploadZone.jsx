@@ -55,7 +55,10 @@ export const UploadZone = ({ file, onChange, setFile, setIsUploaded, dummyLoadin
                             <UploadBtn style={{ cursor: 'default' }} type="button">
                                 <LoadedIcon width={88} height={88} />
                             </UploadBtn>
-                            <MainDesc> <div key={file.path}>{file.name}</div></MainDesc>
+                            <MainDesc> {file.name.length < 50 ?
+                               (<div key={file.path}>{file.name}</div>)
+                               : (<div key={file.path}>{file.name.substring(0,10)}...{file.name.slice(-6)}</div>)}
+                           </MainDesc>
                             <BtnBox nowLoading={nowLoading}>
                                 <ConvertBtn onClick={() => submitFile()}>변환하기</ConvertBtn>
                                 <CancelBtn onClick={removeFile}>업로드 취소</CancelBtn>
