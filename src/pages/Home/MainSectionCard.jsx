@@ -1,9 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import useStore from 'src/stores/rootStore';
 
 export const MainSectionCard = ({ card }) => {
 	const navigate = useNavigate();
+	const { menuStore } = useStore();
 	return (
 		<Frame>
 			<Category>{card.category}</Category>
@@ -16,8 +18,15 @@ export const MainSectionCard = ({ card }) => {
 					</span>
 				))}
 			</Desc>
-			<LinkButton type={card.type} onClick={() => navigate(`${card.path}`)}>
-				{card.type}
+			<LinkButton type={card.type}
+			            onClick={() => {
+			                if(card.category === '음성 언어 처리') menuStore.changeMenu({id : 0});
+			                else menuStore.changeMenu({id : 1});
+                            navigate(`${card.path}`);
+                            }
+                        }
+            >
+            {card.type}
 			</LinkButton>
 			<Img>{card.img}</Img>
 		</Frame>
