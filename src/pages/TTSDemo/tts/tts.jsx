@@ -116,7 +116,7 @@ export const TTS = () => {
 					</ControlFigure>
 				</TextLayout>
 				<div className="column justify-between">
-					<Setting />
+					<Setting playing = {playing}/>
 					<BtnLayout className="center">
 						<PlayBtn onClick={playAud} className="center">
 							{!playing ? (
