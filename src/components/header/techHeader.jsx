@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import profile from 'src/assets/productProfile/Tmax_product_profile.pdf';
 
 export const TechHeader = ({ title, description, demoHeaderSvg, product }) => {
 	return (
@@ -14,7 +15,9 @@ export const TechHeader = ({ title, description, demoHeaderSvg, product }) => {
 					</Description>
 					<BtnSection className="flex gap-16">
 						<InquiryBtn>도입 문의하기</InquiryBtn>
-						<DownloadBtn>제품소개서 다운</DownloadBtn>
+						<a href = {profile} target = "_blank">
+						    <DownloadBtn>제품소개서 다운</DownloadBtn>
+                        </a>
 					</BtnSection>
 				</HeaderLayout>
 			</HeaderSection>

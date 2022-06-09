@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import profile from 'src/assets/productProfile/Tmax_product_profile.pdf';
 
 export const BusinessFooter = () => {
 	return (
@@ -11,7 +12,9 @@ export const BusinessFooter = () => {
 				</TextWrap>
 				<div className="center">
 					<ButtonBlue>도입 문의하기</ButtonBlue>
-					<ButtonDefault>제품소개서 다운</ButtonDefault>
+					<a href = {profile} target = "_blank">
+					    <ButtonDefault>제품소개서 다운</ButtonDefault>
+                    </a>
 				</div>
 			</Contents>
 		</FooterWrap>

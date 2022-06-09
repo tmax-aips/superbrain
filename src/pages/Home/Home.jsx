@@ -13,6 +13,7 @@ import { ReactComponent as NameRecognitionImg } from 'src/assets/Main/mainCard_N
 import { ReactComponent as DocuClassificationImg } from 'src/assets/Main/mainCard_DocuClassification_img.svg';
 import { ReactComponent as InfoseLogo } from 'src/assets/Main/Logo_infose.svg';
 import { ReactComponent as WooriLogo } from 'src/assets/Main/Logo_woori.svg';
+import profile from 'src/assets/productProfile/Tmax_product_profile.pdf';
 
 const Home = () => {
 	const AITechCardContents = [
@@ -80,7 +81,9 @@ const Home = () => {
 				<MainSubTitle>TmaxAI 기술력으로 새로운 가치를 창출해보세요</MainSubTitle>
 				<ButtonWrapper>
 					<ContactButton>도입 문의하기</ContactButton>
-					<DownloadButton>제품소개서 다운</DownloadButton>
+					<a href = {profile} target = "_blank">
+					    <DownloadButton>제품소개서 다운</DownloadButton>
+                    </a>
 				</ButtonWrapper>
 			</Main>
 
@@ -107,7 +110,9 @@ const Home = () => {
 				<BannerDesc>음성, 대화, 문서 지능 등 다양한 분야의 API문의와 제품메뉴얼을 확인해보세요</BannerDesc>
 				<ButtonWrapper>
 					<ContactButton>도입 문의하기</ContactButton>
-					<DownloadButton>제품소개서 다운</DownloadButton>
+					<a href = {profile} target = "_blank">
+					    <DownloadButton>제품소개서 다운</DownloadButton>
+                    </a>
 				</ButtonWrapper>
 			</Banner>
 			<Footer />
@@ -209,6 +214,7 @@ const DownloadButton = styled.button`
 	font-weight: 700;
 	line-height: 26.06px;
 	color: white;
+	cursor: pointer;
 `;
 
 const TechSection = styled.div`
