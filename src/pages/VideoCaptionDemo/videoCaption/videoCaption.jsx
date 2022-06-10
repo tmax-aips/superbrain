@@ -183,7 +183,7 @@ export const VideoCaptionComp = () => {
 							))}
 					</CaptionLayout>
 					<VideoLayout className="center column">
-						<video ref={videoRef} width={450} onTimeUpdate={changeProgress} />
+						<video ref={videoRef} width={450} height={255} onTimeUpdate={changeProgress} />
 						{isVideoReady && (
 							<VideoPlayer
 								videoRef={videoRef}
