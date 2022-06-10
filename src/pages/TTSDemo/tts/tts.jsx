@@ -27,7 +27,6 @@ export const TTS = () => {
 		};
 		fileReader.readAsText(file);
 	};
-
 	// audio play button click
 	const playAud = async () => {
 		if (!playing) {
@@ -71,10 +70,14 @@ export const TTS = () => {
 							txt 파일 업로드
 						</div>
 					</label>
-					{file.name && <span>파일명 | {file.name}</span>}
+					{file.name ? (<>
+                        { file.name.length < 50 ? (<span>파일명 : {file?.name}</span>) :
+                        ( <span>파일명 : {file.name.substring(0,10)}...{file.name.slice(-6)}</span> )}
+                        </>)
+                    : ''}
 					<input type="file" accept=".txt" id="tts_file" onChange={handleChange.bind()} />
 				</FileUploadDiv>
-				<DownloadBtn className="center" onClick={downloadAud}>
+				<DownloadBtn className="center" onClick={downloadAud} disabled={(file.text.length===0) ? true : false}>
 					<DownloadSVG className="mr-8" />
 					<span>다운로드</span>
 				</DownloadBtn>
