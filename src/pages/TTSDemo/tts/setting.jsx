@@ -6,7 +6,7 @@ import { useObserver } from 'mobx-react';
 import { languageOption, spkOptions } from '../staticData/staticValue';
 
 //tts setting component
-export const Setting = () => {
+export const Setting = ({playing}) => {
 	const { ttsStore } = useStore();
 
 	return useObserver(() => (
@@ -21,11 +21,12 @@ export const Setting = () => {
 			<VoiceSetting className="column gap-48">
 				<OptionLayout>
 					<SettingSubTitle>성우 선택</SettingSubTitle>
-					<Select value={ttsStore.selected.spk.value} options={spkOptions} setting="spk" />
+					<Select value={ttsStore.selected.spk.value} options={spkOptions} setting="spk" playing={playing}/>
 				</OptionLayout>
 				<OptionLayout>
 					<SettingSubTitle>말 빠르기 설정</SettingSubTitle>
 					<Lange
+					    disabled={playing?true : false}
 						data-range-id="range"
 						type="range"
 						min="0"
@@ -73,6 +74,7 @@ const OptionLayout = styled.div`
 const Lange = styled.input`
 	min-width: 250px;
 	width: 100%;
+	disabled : ${(props) => (props.playing ? 'true' : 'false')};
 	&[type='range'] {
 		-webkit-appearance: none;
 		width: 100%;

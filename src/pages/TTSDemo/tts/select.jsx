@@ -5,7 +5,7 @@ import { ReactComponent as DownSVG } from 'src/assets/down.svg';
 import styled from 'styled-components';
 
 // TTS select component
-export const Select = ({ value, options, setting }) => {
+export const Select = ({ value, options, setting, playing}) => {
 	const [open, setOpen] = useState(false);
 	const { ttsStore } = useStore();
 
@@ -25,7 +25,7 @@ export const Select = ({ value, options, setting }) => {
 
 	return useObserver(() => (
 		<>
-			<SelectDiv open={open} className="justify-between" onClick={() => setOpen(!open)}>
+			<SelectDiv open={open} className="justify-between" onClick={() => {(!playing && setOpen(!open))}}>
 				{value}
 				<div className="center">
 					<DownSVG />
