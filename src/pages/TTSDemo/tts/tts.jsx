@@ -120,8 +120,8 @@ export const TTS = () => {
 				</TextLayout>
 				<div className="column justify-between">
 					<Setting playing = {playing}/>
-					<BtnLayout className="center">
-						<PlayBtn onClick={playAud} className="center">
+					<BtnLayout className="center" text={file.text.length}>
+						<PlayBtn onClick={playAud} length={file.text.length} className="center" disabled={(file.text.length===0) ? true : false}>
 							{!playing ? (
 								<>
 									<PlaySVG className="mr-8" />
@@ -245,7 +245,11 @@ const BtnLayout = styled.div`
 	padding-top: 2rem;
 	position: relative;
 	button {
-		cursor: pointer;
+	    ${props =>
+	        props.text > 0 && (
+	            `cursor : pointer;`
+            )
+        };
 		border: none;
 	}
 `;
@@ -258,9 +262,14 @@ const PlayBtn = styled.button`
 	line-height: 20px;
 	background-color: #2979ff;
 	color: white;
-	&:hover {
-		background-color: #256ce7;
-	}
+	${props =>
+        props.length >0 &&(
+        `
+            &:hover {
+                background-color: #256ce7;
+            }
+        `)
+    };
 `;
 const DownloadBtn = styled.button`
 	padding: 8px 36px;
