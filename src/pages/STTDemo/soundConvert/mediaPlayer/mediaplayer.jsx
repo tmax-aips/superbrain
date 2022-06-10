@@ -18,6 +18,7 @@ export const MediaPlayer = ({ file, setFile, textData, wordData, setIsUploaded }
 
 	// 시작/정지
 	const playPause = () => {
+	    console.log(isPlay);
 		if (!waver.isPlaying()) {
 			waver.play();
 			getAudioDuration();
@@ -48,6 +49,11 @@ export const MediaPlayer = ({ file, setFile, textData, wordData, setIsUploaded }
 	//현재 문장 위치 추적을 위한 시간 업데이트
 	useInterval(() => {
 		setCurrentTimeSec(waver.getCurrentTime());
+        if(currentTime === audioTime)
+        {
+            setIsPlay(false);
+            waver.stop();
+        }
 	}, 100);
 
 	useEffect(() => {
