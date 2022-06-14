@@ -75,7 +75,7 @@ const VideoCaptionDemo = () => {
 			<TechHeader
 				title={'영상 자막 추출'}
 				description={[
-					'영상을 업로드하면 자동으로 자막을 만들고 사용자가',
+					'영상을 업로드하면 자동으로 자막을 추출하고 사용자가',
 					'편집가능하며 자막 텍스트를 다운받을 수 있습니다.',
 				]}
 				demoHeaderSvg={demoHeaderSvg}
