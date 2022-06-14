@@ -15,8 +15,8 @@ const optionStore = observable({
 			selected: false,
 		},
 		{
-			text: '영상 자막 생성하기',
-			subText: '업로드한 영상의 음성을 분석하여 자동으로 자막을 생성해주는 기술',
+			text: '영상 자막 추출하기',
+			subText: '업로드한 영상의 음성을 분석하여 자동으로 자막을 추출하는 기술',
 			selected: false,
 		},
 	],
