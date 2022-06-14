@@ -12,7 +12,7 @@ const MenuList = [
 		title: '음성언어처리',
 		page: [
 			{ title: 'STT', link: '/stt' },
-			{ title: '영상 자막 생성', link: '/videoCaption' },
+			{ title: '영상 자막 추출', link: '/videoCaption' },
 			{ title: 'TTS', link: '/tts' },
 		],
 		svg: <Speaker />,

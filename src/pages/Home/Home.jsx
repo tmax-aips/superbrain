@@ -27,8 +27,8 @@ const Home = () => {
 		},
 		{
 			category: '음성 언어 처리',
-			title: '영상 자막 생성',
-			desc: '영상을 업로드하면 자동으로 \n 자막을 만들고 사용자가 편집가능하며 \n 자막 텍스트를 다운받을 수 있습니다',
+			title: '영상 자막 추출',
+			desc: '영상을 업로드하면 자동으로 \n 자막을 추출하고 사용자가 편집가능하며 \n 자막 텍스트를 다운받을 수 있습니다',
 			type: '체험하기',
 			img: <VideoCaptionImg />,
 			path: '/videoCaption',
