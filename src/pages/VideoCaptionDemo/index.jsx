@@ -21,8 +21,8 @@ const FeaturesList = [
 		cardWidth: '480px',
 		list: [
 			{
-				title: '업로드만으로 빠른 자막생성',
-				description: ['영상 업로드 만으로 음성인식 결과를', '문장단위로 나누어 빠르게 자막을 생성해드립니다.'],
+				title: '업로드만으로 빠른 자막추출',
+				description: ['영상 업로드 만으로 음성인식 결과를', '문장단위로 나누어 빠르게 자막을 추출해드립니다.'],
 				svg: <TextUpload />,
 			},
 			{
