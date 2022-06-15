@@ -8,6 +8,7 @@ export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption,
 	const [text, setText] = useState('');
 	const [loading, setLoading] = useState(true);
     const [clickEvent, setClickEvent] = useState(0);
+
     const inputRef = useRef();
 	// debounce for caption field modifications
 	const textDebounce = useMemo(
@@ -51,7 +52,7 @@ export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption,
 						<WordsLayout className="center">
 							{sentence.wordsArr?.map((words, index) => {
 								return (
-									<WordBox
+								    <WordBox
 										key={words.word + index}
 										current={
 											videoRef.current.currentTime.toFixed(2) >= words.start &&
@@ -60,15 +61,6 @@ export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption,
 										onClick={(e)=>{
 										    e.stopPropagation();
 										    setClickEvent(words.start);
-										    let selectWord=0;
-										    if(index>0){
-										        let tmp = 0;
-										        for(let i=0;i<index;i++){
-										            tmp+=sentence.wordsArr[i].word.length;
-										        }
-										        selectWord=tmp+index+words.word.length;
-                                            }else selectWord=words.word.length;
-										    inputRef.current.setSelectionRange(selectWord,selectWord);
 										    }
                                         }
 									>
