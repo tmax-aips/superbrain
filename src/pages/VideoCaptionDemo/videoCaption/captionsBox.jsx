@@ -6,7 +6,6 @@ import { clockTime } from 'src/utils/time';
 //caption box component
 export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption, videoRef, captionRef }) => {
 	const [text, setText] = useState('');
-	const [clickedWord, setClickedWord] = useState('');
 	const [loading, setLoading] = useState(true);
     const [clickEvent, setClickEvent] = useState(0);
     const inputRef = useRef();
