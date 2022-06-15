@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { debounce } from 'lodash';
 import styled from 'styled-components';
 import { clockTime } from 'src/utils/time';
@@ -7,7 +7,9 @@ import { clockTime } from 'src/utils/time';
 export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption, videoRef, captionRef }) => {
 	const [text, setText] = useState('');
 	const [loading, setLoading] = useState(true);
+    const [clickEvent, setClickEvent] = useState(0);
 
+    const inputRef = useRef();
 	// debounce for caption field modifications
 	const textDebounce = useMemo(
 		() =>
@@ -16,12 +18,13 @@ export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption,
 			}, 1000),
 		[changeCaption, idx, loading],
 	);
-
+    useEffect(() => {
+        videoRef.current.currentTime = clickEvent;
+    },[clickEvent]);
 	useEffect(() => {
 		setText(sentence.text);
 		setLoading(false);
 	}, []);
-
 	return (
 		<div key={idx}>
 			<SentenceLabel
@@ -49,12 +52,17 @@ export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption,
 						<WordsLayout className="center">
 							{sentence.wordsArr?.map((words, index) => {
 								return (
-									<WordBox
+								    <WordBox
 										key={words.word + index}
 										current={
 											videoRef.current.currentTime.toFixed(2) >= words.start &&
 											videoRef.current.currentTime.toFixed(2) < words.end
 										}
+										onClick={(e)=>{
+										    e.stopPropagation();
+										    setClickEvent(words.start);
+										    }
+                                        }
 									>
 										{words.word}
 									</WordBox>
@@ -62,6 +70,7 @@ export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption,
 							})}
 							<CaptionInput
 								type="text"
+								ref={inputRef}
 								value={text}
 								onChange={(e) => {
 									setText(e.target.value);
@@ -70,7 +79,7 @@ export const CaptionsBox = ({ sentence, idx, playing, setPlaying, changeCaption,
 								onClick={(e) => {
 									//remove bubbling
 									e.stopPropagation();
-									videoRef.current.currentTime = sentence.totalStart;
+									//videoRef.current.currentTime = sentence.totalStart;
 								}}
 							/>
 						</WordsLayout>
