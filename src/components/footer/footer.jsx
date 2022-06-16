@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as LogoWhite } from 'src/assets/BI_SuperBrain_4_1.svg';
+import { ReactComponent as LogoWhite } from 'src/assets/BI_SuperNLP_4_1.svg';
 import { ReactComponent as Top } from 'src/assets/topIcon.svg';
 import { ReactComponent as Policy } from 'src/assets/policyIcon.svg';
 
