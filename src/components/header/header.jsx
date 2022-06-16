@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { throttle } from 'lodash';
-import LogoWhiteVer2 from 'src/assets/BI_SuperBrain_white.png';
-import LogoBlackVer2 from 'src/assets/BI_SuperBrain_black.png';
+import LogoWhiteVer2 from 'src/assets/BI_SuperNLP_white.png';
+import LogoBlackVer2 from 'src/assets/BI_SuperNLP_black.png';
 import { MenuBar } from './menu/menuBar';
 import { useNavigate } from 'react-router-dom';
 
