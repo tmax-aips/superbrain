@@ -26,7 +26,7 @@ const TTSFeatures = [
 		list: [
 			{
 				title: '고품질 합성된 음성',
-				description: ['람의 음성에 가까운 자연스러운', '음성 변환을 사용할 수 있습니다'],
+				description: ['사람의 음성에 가까운 자연스러운', '음성 변환을 사용할 수 있습니다'],
 				svg: <VoiceSVG />,
 			},
 			{
