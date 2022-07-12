@@ -10,14 +10,14 @@ export const sentenceMaker = (data) => {
 		end: 0,
 	};
 	data?.forEach((item, idx) => {
-		if (idx !== 0 && item.start - tempWord.end > 0.5 && tempWord.word !== '') {
+		/*if (idx !== 0 && item.start - tempWord.end > 0.5 && tempWord.word !== '') {
 			arr.push(tempWord);
 			tempWord = {
 				word: '',
 				start: item.start,
 				end: item.end,
 			};
-		}
+		}*/
 		if (tempWord.start === 0) tempWord.start = item.start;
 		tempWord.word += `${item.word} `;
 		tempWord.end = item.end;

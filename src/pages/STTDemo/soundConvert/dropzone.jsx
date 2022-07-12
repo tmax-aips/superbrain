@@ -49,6 +49,7 @@ export const DropZone = ({ file, setFile, setIsUploaded, setTextData, setWordDat
 		reader.readAsDataURL(file);
 		reader.onload = (e) => {
 			let data = e.target.result;
+			console.log(data);
 			sendData(data.split(',')[1]);
 		};
 	};

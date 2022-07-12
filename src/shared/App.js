@@ -18,6 +18,7 @@ function App() {
                         <Route path="/stt" element={<Pages.STTDemo />} />
                         <Route path="/tts" element={<Pages.TTSDemo />} />
                         <Route path="/videoCaption" element={<Pages.VideoCaption />} />
+                        <Route path="/inquiry" element={<Pages.Inquiry/>} />
                     </Routes>
                 </BrowserRouter>
             </FontDefault>

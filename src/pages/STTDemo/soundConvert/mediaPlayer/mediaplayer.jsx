@@ -104,6 +104,7 @@ export const MediaPlayer = ({ file, setFile, textData, wordData, setIsUploaded }
 			</MediaPos>
 			<Divider />
 			<TextPos>
+				{console.log(wordData)}
 				<WordPlayer wordData={wordData} currentTime={currentTimeSec} onClick={wordPlay} />
 			</TextPos>
 		</Wrapper>
