@@ -111,7 +111,7 @@ const Home = () => {
 				<BannerTitle>Tmax AI와 함께 비즈니스 성공을 만들어보세요</BannerTitle>
 				<BannerDesc>음성, 대화, 문서 지능 등 다양한 분야의 API문의와 제품메뉴얼을 확인해보세요</BannerDesc>
 				<ButtonWrapper>
-					<ContactButton>도입 문의하기</ContactButton>
+					<ContactButton onClick={()=>{navigate('/inquiry')}}>도입 문의하기</ContactButton>
 					<a href = {profile} target = "_blank">
 					    <DownloadButton>제품소개서 다운</DownloadButton>
                     </a>
