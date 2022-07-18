@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import profile from 'src/assets/productProfile/Tmax_product_profile.pdf';
+import { useNavigate } from 'react-router-dom';
 
 export const TechHeader = ({ title, description, demoHeaderSvg, product }) => {
+	const navigate = useNavigate();
 	return (
 		<div>
 			<HeaderSection demoHeaderSvg={demoHeaderSvg} className="column">
@@ -14,7 +16,7 @@ export const TechHeader = ({ title, description, demoHeaderSvg, product }) => {
 						})}
 					</Description>
 					<BtnSection className="flex gap-16">
-						<InquiryBtn>도입 문의하기</InquiryBtn>
+						<InquiryBtn onClick={()=>{navigate('/inquiry')}}>도입 문의하기</InquiryBtn>
 						<a href = {profile} target = "_blank">
 						    <DownloadBtn>제품소개서 다운</DownloadBtn>
                         </a>

@@ -40,7 +40,7 @@ export const Header = ({ main }) => {
 							<img src={LogoBlackVer2} alt="LogoBlack" />
 						)}
 					</figure>
-					<ContectButton main={main}>도입 문의하기</ContectButton>
+					<ContectButton main={main} onClick={()=>{navigate('/inquiry')}}>도입 문의하기</ContectButton>
 				</Body>
 			</HeaderSection>
 			{!main && <MenuBar />}

@@ -106,7 +106,137 @@ export const FormInquiry = () => {
                 <PersonalInfo>
                     <div className="flex left gap-8">
                         <ReddotSVG style={{marginRight: "8px", marginTop:"14px"}}/>
-                        <Select_Ment className="center">제품명</Select_Ment>
+                        <Select_Ment className="center">답변 받을 메일 주소</Select_Ment>
+                        <div style={{width: "471px", height:"42px", marginLeft : "40px"}}>
+                            <InputDiv className="justify-between" style={{height:"36.9px"}}>
+                                {" "}
+                            </InputDiv>
+                        </div>
+                        <p className="center">@</p>
+                        <div style={{width: "471px", height:"42px"}}>
+                            <SelectDiv className="justify-between">
+                                {"선택"}
+                                <div className='center'>
+                                    <DownSVG />
+                                </div>
+                            </SelectDiv>
+                            { open && (
+                                <SelectOptionDiv>
+                                    <SelectOptionUl>
+                                        {options?.map((option, idx) => {
+                                            return (
+                                                <SelectOptionLi>
+                                                </SelectOptionLi>
+                                            );
+                                        })}
+                                    </SelectOptionUl>
+                                </SelectOptionDiv>
+                            )}
+                        </div>
+                    </div>
+                    <div className="flex left gap-8">
+                        <ReddotSVG style={{marginRight: "8px", marginTop:"14px"}}/>
+                        <Select_Ment className="center">성명</Select_Ment>
+                        <div style={{width: "471px", height:"42px", marginLeft : "129px"}}>
+                            <InputDiv className="justify-between" style={{height:"36.9px"}}>
+                                {" "}
+                            </InputDiv>
+                        </div>
+                    </div>
+                    <div className="flex left gap-8">
+                        <ReddotSVG style={{marginRight: "8px", marginTop:"14px"}}/>
+                        <Select_Ment className="center">휴대폰</Select_Ment>
+                        <div style={{width: "221px", height:"42px", marginLeft : "117px"}}>
+                            <SelectDiv className="justify-between">
+                                {"선택"}
+                                <div className='center'>
+                                    <DownSVG />
+                                </div>
+                            </SelectDiv>
+                            { open && (
+                                <SelectOptionDiv>
+                                    <SelectOptionUl>
+                                        {options?.map((option, idx) => {
+                                            return (
+                                                <SelectOptionLi>
+                                                </SelectOptionLi>
+                                            );
+                                        })}
+                                    </SelectOptionUl>
+                                </SelectOptionDiv>
+                            )}
+                        </div>
+                        <p className="center" style={{width:"13px"}}>-</p>
+                        <div style={{width: "221px", height:"42px"}}>
+                            <InputDiv className="justify-between" style={{height:"36.9px"}}>
+                                {" "}
+                            </InputDiv>
+                        </div>
+                        <p className="center" style={{width:"13px"}}>-</p>
+                        <div style={{width: "221px", height:"42px"}}>
+                            <InputDiv className="justify-between" style={{height:"36.9px"}}>
+                                {" "}
+                            </InputDiv>
+                        </div>
+                    </div>
+                    <div className="flex left gap-8">
+                        <Select_Ment className="center" style={{marginLeft: "20px"}}>회사명</Select_Ment>
+                        <div style={{width: "471px", height:"42px", marginLeft : "117px"}}>
+                            <InputDiv className="justify-between" style={{height:"36.9px"}}>
+                                {" "}
+                            </InputDiv>
+                        </div>
+                    </div>
+                    <div className="flex left gap-8">
+                        <Select_Ment className="center" style={{marginLeft: "20px"}}>부서명</Select_Ment>
+                        <div style={{width: "471px", height:"42px", marginLeft : "117px"}}>
+                            <InputDiv className="justify-between" style={{height:"36.9px"}}>
+                                {" "}
+                            </InputDiv>
+                        </div>
+                    </div>
+                    <div className="flex left gap-8">
+                        <Select_Ment className="center" style={{marginLeft: "20px"}}>직위/직책</Select_Ment>
+                        <div style={{width: "471px", height:"42px", marginLeft : "98px"}}>
+                            <SelectDiv className="justify-between">
+                                {"직위"}
+                                <div className='center'>
+                                    <DownSVG />
+                                </div>
+                            </SelectDiv>
+                            { open && (
+                                <SelectOptionDiv>
+                                    <SelectOptionUl>
+                                        {options?.map((option, idx) => {
+                                            return (
+                                                <SelectOptionLi>
+                                                </SelectOptionLi>
+                                            );
+                                        })}
+                                    </SelectOptionUl>
+                                </SelectOptionDiv>
+                            )}
+                        </div>
+                        <div style={{width: "471px", height:"42px", marginLeft : "21px"}}>
+                            <SelectDiv className="justify-between">
+                                {"직책"}
+                                <div className='center'>
+                                    <DownSVG />
+                                </div>
+                            </SelectDiv>
+                            { open && (
+                                <SelectOptionDiv>
+                                    <SelectOptionUl>
+                                        {options?.map((option, idx) => {
+                                            return (
+                                                <SelectOptionLi>
+                                                </SelectOptionLi>
+                                            );
+                                        })}
+                                    </SelectOptionUl>
+                                </SelectOptionDiv>
+                            )}
+                        </div>
                     </div>
                 </PersonalInfo>
             </QuestionSection>

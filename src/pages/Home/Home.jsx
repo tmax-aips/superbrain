@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { MainSectionCard } from './MainSectionCard';
 import { Header } from 'src/components/header/header';
 import { Footer } from 'src/components/footer/footer';
@@ -16,6 +17,7 @@ import { ReactComponent as WooriLogo } from 'src/assets/Main/Logo_woori.svg';
 import profile from 'src/assets/productProfile/Tmax_product_profile.pdf';
 
 const Home = () => {
+	const navigate = useNavigate();
 	const AITechCardContents = [
 		{
 			category: '음성 언어 처리',
@@ -80,7 +82,7 @@ const Home = () => {
 				<MainTitle>AI Technology Platform For Anyone</MainTitle>
 				<MainSubTitle>TmaxAI 기술력으로 새로운 가치를 창출해보세요</MainSubTitle>
 				<ButtonWrapper>
-					<ContactButton>도입 문의하기</ContactButton>
+					<ContactButton onClick={()=>{navigate('/inquiry')}}>도입 문의하기</ContactButton>
 					<a href = {profile} target = "_blank">
 					    <DownloadButton>제품소개서 다운</DownloadButton>
                     </a>

@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import profile from 'src/assets/productProfile/Tmax_product_profile.pdf';
+import { useNavigate } from 'react-router-dom';
 
 export const BusinessFooter = () => {
+	const navigate = useNavigate();
 	return (
 		<FooterWrap className="flex">
 			<Contents className="justify-between">
@@ -11,7 +13,7 @@ export const BusinessFooter = () => {
 					<div>비즈니스 성공을 만들어보세요</div>
 				</TextWrap>
 				<div className="center">
-					<ButtonBlue>도입 문의하기</ButtonBlue>
+					<ButtonBlue onClick={()=>{navigate('/inquiry')}}>도입 문의하기</ButtonBlue>
 					<a href = {profile} target = "_blank">
 					    <ButtonDefault>제품소개서 다운</ButtonDefault>
                     </a>
