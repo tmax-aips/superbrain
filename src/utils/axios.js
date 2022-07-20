@@ -8,7 +8,7 @@ export const request = async (method, url, data) => {
 			'Content-Type': 'application/json; charset=UTF-8',
 		},
 		method,
-		url: `https://hyperbrain.ai/${url}`,
+		url: `https://tmaxai.co.kr/${url}`,
 		data: data,
 	})
 		.then((res) => {
